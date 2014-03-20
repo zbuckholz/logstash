@@ -1,0 +1,5 @@
+## This pattern is for Atlassian Crowd 
+
+# When Microsoft AD has problems our Crowd infrastructure can also have issues at the same time. 
+# This pattern allows us to capture these events for Kibana as well as Zabbix for alerting.
+CROWD_AD_ERR %{TIMESTAMP_ISO8601}(\s)(?<error1>(http-bio-(\d+)-exec-(\d+)))(\s)ERROR(\s)\[%{JAVACLASS}\](\s)(?<error2>Directory(\s)%{QS}(\s)(is not functional during authentication of(\s)(?<user>%{QS})\.\sSkipped\.))

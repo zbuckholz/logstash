@@ -1,0 +1,5 @@
+## These patterns are for Atlassian Stash
+
+# JSON Schema to use data parsed with these patterns is in the stash.json schema.
+STASH_HTTP %{IP:proxy}(,)*+%{IP:client}*+ \| %{WORD:protocol} \| (?<startorstop>(i|o))%{INT:minuteinday}x%{INT:reqnumsincerestart}x%{INT:concurrentreqs} \| %{USERNAME:user}*+ \| %{TIMESTAMP_ISO8601} \| %{QS:request} \| %{QS:referrer}*?(\s)%{QS:agent}*? \|(\s)(?<reqtype>(-|%{WORD}))(\s)\|(\s)(?<ms>(-|%{INT}))(\s)\|(\s)(?<sessionid>(-|%{WORD}))(\s)\|
+STASH_SSH %{IP:proxy}(,)*+%{IP:client}*+ \| %{WORD:protocol} \| (?<startorstop>(i|o))%{INT:minuteinday}x%{INT:reqnumsincerestart}x%{INT:concurrentreqs} \| %{USERNAME:user}*+ \| %{TIMESTAMP_ISO8601} \| %{DATA:request} \|(\s)-(\s)\| (?<reqtype>(-|%{WORD})) \| (?<ms>(-|%{INT})) \| (?<sessionid>(-|%{WORD})) \|
